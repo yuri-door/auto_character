@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       background: transparent;
@@ -17,65 +17,7 @@
   </style>
 </head>
 <body>
-  <video id="video" autoplay muted loop playsinline></video>
-  <script>
-    const video = document.getElementById('video');
-    const defaultVideo = 'idle.webm';
-    let isPlaying = false;
-
-    function playEmotion(videoName) {
-      if (isPlaying) return;
-      isPlaying = true;
-
-      video.loop = false;
-      video.src = videoName;
-      video.play();
-
-      video.onended = () => {
-        video.loop = true;
-        video.src = defaultVideo;
-        video.play();
-        isPlaying = false;
-      };
-    }
-
-    // 페이지 로딩 시 기본 영상 띄우기
-    window.addEventListener('load', () => {
-      video.src = defaultVideo;
-      video.loop = true;
-      video.play();
-    });
-
-    // 단축키 감정 전환
-    document.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.shiftKey) {
-        switch (e.code) {
-          /*case 'Digit1': playEmotion('greeting.webm'); break;
-          case 'Digit2': playEmotion('bye.webm'); break;
-          case 'Digit3': playEmotion('thanks.webm'); break;
-          case 'Digit4': playEmotion('sorry.webm'); break;
-          case 'Digit5': playEmotion('goodjob.webm'); break;
-          case 'Digit6': playEmotion('cry.webm'); break;
-          case 'Digit7': playEmotion('sad.webm'); break;
-          case 'Digit8': playEmotion('scared.webm'); break;
-          case 'Digit9': playEmotion('teary.webm'); break;
-          case 'Digit0': playEmotion('vsign.webm'); break;*/
-        }
-      } else if (e.ctrlKey) {
-        switch (e.code) {
-          case 'Digit1': playEmotion('greeting.webm'); break;
-          case 'Digit2': playEmotion('sad.webm'); break;
-          case 'Digit3': playEmotion('thanks.webm'); break;
-          /*case 'Digit4': playEmotion('fast.webm'); break;
-          case 'Digit5': playEmotion('nomad.webm'); break;
-          case 'Digit6': playEmotion('pout.webm'); break;
-          case 'Digit7': playEmotion('tongue.webm'); break;
-          case 'Digit8': playEmotion('angry.webm'); break;
-          case 'Digit9': playEmotion('cando.webm'); break;
-          case 'Digit0': playEmotion('forgive.webm'); break;*/
-        }
-      }
-    });
-  </script>
+  <video id="video" autoplay muted playsinline></video>
+  <script src="script.js"></script>
 </body>
 </html>
